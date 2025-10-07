@@ -1,10 +1,10 @@
+#Setup dotfiles command to handle git repo for your config files
 function dotfiles
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv
 end
 
-
+#Honestly I don't know where this came from, I think it's default?
 source /usr/share/cachyos-fish-config/cachyos-config.fish
-
 
 #added for ssh
 set -Ux SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
