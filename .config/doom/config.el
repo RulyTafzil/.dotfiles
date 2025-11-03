@@ -3,21 +3,20 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
-
-(setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shell "/bin/fish")
-(setq-default explicit-shell-file-name "/bin/fish")
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Ruly Tafzil"
        user-mail-address "contact@RulyTafzil.com")
 
-;; For some reason reloading doom from within itself stopped working
-;; manually setting path to the bin
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell "/bin/fish")
+(setq-default explicit-shell-file-name "/bin/fish")
 
 (setq doom-cli-executable (expand-file-name "~/.config/emacs/bin/doom"))
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type 'relative)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -44,14 +43,16 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dark+)
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+(setq org-roam-directory "~/ownCloud/Personal/OrgNotes/")
+(after! org
+  (add-to-list 'org-src-lang-modes '("fish" . fish)))
 
+;; apply code highlighting to code blocks in org mode
+;;(setq org-src-fontify-natively t)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

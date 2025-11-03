@@ -9,7 +9,7 @@
 ;;
 ;; Use 'C-h f package\!' to look up documentation for the `package!' macro.
 
-
+(package! fish-mode)
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
 
@@ -52,3 +52,10 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+
+;; (use-package! org-roam
+  ;; :custom
+  ;; (org-roam-directory "~/ownCloud/Personal/OrgNotes")
+  ;; :config
+  ;; (org-roam-setup))

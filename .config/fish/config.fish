@@ -6,6 +6,8 @@ function dotfiles
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv
 end
 
+#added for mpv hdr video
+set -Ux ENABLE_HDR_WSI "1"
 
 #added for ssh
 set -Ux SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
