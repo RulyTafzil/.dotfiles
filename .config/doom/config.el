@@ -51,6 +51,11 @@
 (after! org
   (add-to-list 'org-src-lang-modes '("fish" . fish)))
 
+
+;; (use-package! ron-mode
+;;   :mode "\\.ron\\'")
+(add-to-list 'auto-mode-alist '("\\.ron\\'" . rust-mode))
+
 ;; apply code highlighting to code blocks in org mode
 ;;(setq org-src-fontify-natively t)
 

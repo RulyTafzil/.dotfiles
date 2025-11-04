@@ -6,8 +6,21 @@ function dotfiles
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv
 end
 
+#config for yazi file manager to let it move user to working dir when existing yazi
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
+set -Ux EDITOR "emacsclient -c -a doom"
+set -Ux VISUAL "emacsclient -c -a doom"
+
 #added for mpv hdr video
-set -Ux ENABLE_HDR_WSI "1"
+#set -Ux ENABLE_HDR_WSI "1"
 
 #added for ssh
 set -Ux SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
